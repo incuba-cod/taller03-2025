@@ -17,7 +17,7 @@ taller esp32 con ds18b20 con conexión a thingspeak
 🔹 Editor Arduino IDE  
 
 🏗 Paso a Paso: ESP32 con DS18B20 y conexión a ThingSpeak  
-1️⃣ Configuración del entorno de desarrollo
+# 1️⃣ Configuración del entorno de desarrollo
 Antes de comenzar, asegúrate de tener el Arduino IDE instalado y configurado para el ESP32:
 
 🔹 Instalar Arduino IDE (si aún no lo tienes)
@@ -32,20 +32,20 @@ Antes de comenzar, asegúrate de tener el Arduino IDE instalado y configurado pa
     WiFi → Para la conexión a Internet
     
     HTTPClient → Para enviar datos a ThingSpeak
-2️⃣ Conexión del ESP32 con el DS18B20
+# 2️⃣ Conexión del ESP32 con el DS18B20
 El DS18B20 es un sensor de temperatura digital que se comunica mediante el protocolo OneWire.
 
 🔌 Conexión de pines:  
 
 DS18B20	ESP32  
-VCC	---- 3.3V  
-GND	---- GND  
-DQ	---- GPIO 14 (u otro pin digital)  
+VCC	---- 3.3V  -- Rojo
+GND	---- GND   -- Negro
+DQ	---- GPIO 14 (u otro pin digital) -- Amarrillo 
 ⚠ IMPORTANTE: Conectar una resistencia de 4.7kΩ entre el pin DQ y VCC para garantizar la comunicación.  
 ![image](https://github.com/user-attachments/assets/d5bfc90a-43ef-4883-8b5f-9a4290292343)
 
 
-3️⃣ Programación para leer temperatura
+# 3️⃣ Programación para leer temperatura
 Ahora, cargamos el siguiente código para leer la temperatura y mostrarla en el monitor serie:
 
         
@@ -87,14 +87,14 @@ Ahora, cargamos el siguiente código para leer la temperatura y mostrarla en el 
     
 ✅ Sube el código al ESP32 y abre el Monitor Serie para ver la temperatura en tiempo real.
 
-4️⃣ Crear una cuenta y canal en ThingSpeak
+# 4️⃣ Crear una cuenta y canal en ThingSpeak
 Ve a ThingSpeak y crea una cuenta.
 
 Crea un nuevo canal y asigna un campo para la temperatura.
 
 Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
 
-5️⃣ Enviar datos del ESP32 a ThingSpeak
+# 5️⃣ Enviar datos del ESP32 a ThingSpeak
 
 
         #include <WiFi.h>
@@ -155,7 +155,7 @@ Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
         }
 
 
-6️⃣ Enviar datos del sensor ds18b20 a ThingSpeak
+# 6️⃣ Enviar datos del sensor ds18b20 a ThingSpeak
 
         #include <WiFi.h>
         #include "secrets.h"
@@ -211,7 +211,7 @@ Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
         }
 
 
-8️⃣ Link de video
+# 8️⃣ Link de video
 
 
 
