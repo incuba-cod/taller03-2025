@@ -3,8 +3,8 @@ taller esp32 con ds18b20 con conexión a thingspeak
 
 ¿Te gustaría aprender a medir temperatura con el sensor DS18B20 y enviar los datos a la nube en ThingSpeak? 🚀 En este taller, te enseñaremos paso a paso cómo hacerlo con un ESP32.
 
-📌 ¿Qué aprenderás?
-✅ Conectar y programar el sensor DS18B20 en un ESP32
+📌 ¿Qué aprenderás?  
+✅ Conectar y programar el sensor DS18B20 en un ESP32  
 ✅ Enviar datos a la nube usando ThingSpeak
 ✅ Visualizar la información en gráficos en tiempo real
 ✅ Aplicaciones prácticas para IoT
