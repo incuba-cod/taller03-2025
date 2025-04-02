@@ -83,5 +83,16 @@ Ahora, cargamos el siguiente código para leer la temperatura y mostrarla en el 
       
     }
     
+✅ Sube el código al ESP32 y abre el Monitor Serie para ver la temperatura en tiempo real.
 
+4️⃣ Crear una cuenta y canal en ThingSpeak
+Ve a ThingSpeak y crea una cuenta.
+
+Crea un nuevo canal y asigna un campo para la temperatura.
+
+Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
+
+5️⃣ Enviar datos del ESP32 a ThingSpeak
+
+6️⃣ Visualizar datos en gráficos en la nube
 
