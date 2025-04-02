@@ -94,5 +94,123 @@ Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
 
 5️⃣ Enviar datos del ESP32 a ThingSpeak
 
-6️⃣ Visualizar datos en gráficos en la nube
+
+        #include <WiFi.h>
+        #include "secrets.h"
+        #include "ThingSpeak.h" // always include thingspeak header file after other header files and custom macros
+        
+        char ssid[] = SECRET_SSID;   // your network SSID (name) 
+        char pass[] = SECRET_PASS;   // your network password
+        int keyIndex = 0;            // your network key Index number (needed only for WEP)
+        WiFiClient  client;
+        
+        unsigned long myChannelNumber = SECRET_CH_ID;
+        const char * myWriteAPIKey = SECRET_WRITE_APIKEY;
+        
+        int number = 0;
+        
+        void setup() {
+          Serial.begin(115200);  //Initialize serial
+          while (!Serial) {
+            ; // wait for serial port to connect. Needed for Leonardo native USB port only
+          }
+          
+          WiFi.mode(WIFI_STA);   
+          ThingSpeak.begin(client);  // Initialize ThingSpeak
+        }
+        
+        void loop() {
+        
+          // Connect or reconnect to WiFi
+          if(WiFi.status() != WL_CONNECTED){
+            Serial.print("Attempting to connect to SSID: ");
+            Serial.println(SECRET_SSID);
+            while(WiFi.status() != WL_CONNECTED){
+              WiFi.begin(ssid, pass); // Connect to WPA/WPA2 network. Change this line if using open or WEP network
+              Serial.print(".");
+              delay(5000);     
+            } 
+            Serial.println("\nConnected.");
+          }
+        
+          // Write to ThingSpeak. There are up to 8 fields in a channel, allowing you to store up to 8 different
+          // pieces of information in a channel.  Here, we write to field 1.
+          int x = ThingSpeak.writeField(myChannelNumber, 1, number, myWriteAPIKey);
+          if(x == 200){
+            Serial.println("Channel update successful.");
+          }
+          else{
+            Serial.println("Problem updating channel. HTTP error code " + String(x));
+          }
+          
+          // change the value
+          number++;
+          if(number > 99){
+            number = 0;
+          }
+          
+          delay(20000); // Wait 20 seconds to update the channel again
+        }
+
+
+6️⃣ Enviar datos del sensor ds18b20 a ThingSpeak
+
+        #include <WiFi.h>
+        #include "secrets.h"
+        #include "ThingSpeak.h" // Siempre incluir ThingSpeak después de otros headers y macros personalizados
+        #include <OneWire.h>
+        #include <DallasTemperature.h>
+        
+        #define ONE_WIRE_BUS 4  // Definimos el pin donde está conectado el sensor DS18B20
+        
+        // Configuración para la comunicación con el sensor DS18B20
+        OneWire oneWire(ONE_WIRE_BUS);
+        DallasTemperature sensors(&oneWire);
+        
+        // Datos de la red WiFi
+        char ssid[] = "NOMBRE";   // Nombre de la red WiFi
+        char pass[] = "CONTRASEÑA";   // Contraseña de la red WiFi
+        WiFiClient  client;  // Cliente WiFi para conectarse a ThingSpeak
+        
+        // Configuración de ThingSpeak
+        unsigned long myChannelNumber = chanel;  // Número del canal de ThingSpeak
+        const char * myWriteAPIKey = "apikay";   // API Key para escribir en el canal
+        
+        void setup() {
+          Serial.begin(115200);  // Iniciamos la comunicación serie
+          sensors.begin();  // Iniciamos el sensor DS18B20
+          
+          // Configuración de WiFi
+          WiFi.mode(WIFI_STA);  // Configura el ESP32 en modo estación
+          ThingSpeak.begin(client);  // Inicializa la comunicación con ThingSpeak
+        }
+        
+        void loop() {
+          // Verifica si el ESP32 está conectado a WiFi, si no, intenta conectarse
+          if (WiFi.status() != WL_CONNECTED) {
+            Serial.print("Intentando conectar a la red: ");
+            Serial.println(SECRET_SSID);
+            while (WiFi.status() != WL_CONNECTED) {
+              WiFi.begin(ssid, pass);  // Se intenta conectar a la red
+              Serial.print(".");
+              delay(5000);  // Espera antes de intentar de nuevo
+            }
+            Serial.println("\nConectado.");
+          }
+        
+          // Obtiene la temperatura en grados Celsius desde el sensor DS18B20
+          float tempC = sensors.getTempCByIndex(0);
+        
+          // Envía la temperatura a ThingSpeak en el campo 1 del canal
+          int x = ThingSpeak.writeField(myChannelNumber, 1, tempC, myWriteAPIKey);
+        
+          // Espera 20 segundos antes de enviar el siguiente dato
+          delay(20000);
+        }
+
+
+8️⃣ Subir el código y verificar los datos en la nube
+
+9️⃣ Visualizar datos en gráficos en la nube
+
 
