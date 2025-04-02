@@ -5,18 +5,18 @@ taller esp32 con ds18b20 con conexión a thingspeak
 
 📌 ¿Qué aprenderás?  
 ✅ Conectar y programar el sensor DS18B20 en un ESP32  
-✅ Enviar datos a la nube usando ThingSpeak
-✅ Visualizar la información en gráficos en tiempo real
-✅ Aplicaciones prácticas para IoT
+✅ Enviar datos a la nube usando ThingSpeak  
+✅ Visualizar la información en gráficos en tiempo real  
+✅ Aplicaciones prácticas para IoT  
 
-🛠 Materiales y requisitos
-🔹 ESP32
-🔹 Sensor DS18B20 (con resistencia de 4.7kΩ)
-🔹 Cables y protoboard
-🔹 Conexión a Internet vía WiFi
-🔹 Editor Arduino IDE
+🛠 Materiales y requisitos  
+🔹 ESP32  
+🔹 Sensor DS18B20 (con resistencia de 4.7kΩ)  
+🔹 Cables y protoboard  
+🔹 Conexión a Internet vía WiFi  
+🔹 Editor Arduino IDE  
 
-🏗 Paso a Paso: ESP32 con DS18B20 y conexión a ThingSpeak
+🏗 Paso a Paso: ESP32 con DS18B20 y conexión a ThingSpeak  
 1️⃣ Configuración del entorno de desarrollo
 Antes de comenzar, asegúrate de tener el Arduino IDE instalado y configurado para el ESP32:
 
