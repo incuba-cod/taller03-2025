@@ -209,8 +209,9 @@ Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
         }
 
 
-8️⃣ Subir el código y verificar los datos en la nube
+8️⃣ Link de video
 
-9️⃣ Visualizar datos en gráficos en la nube
+
+
 
 
