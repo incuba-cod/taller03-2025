@@ -37,10 +37,10 @@ El DS18B20 es un sensor de temperatura digital que se comunica mediante el proto
 
 🔌 Conexión de pines:  
 
-DS18B20	ESP32  
-VCC	---- 3.3V  -- Rojo
-GND	---- GND   -- Negro
-DQ	---- GPIO 14 (u otro pin digital) -- Amarrillo 
+DS18B20	ESP32    
+VCC	---- 3.3V  -- Rojo  
+GND	---- GND   -- Negro  
+DQ	---- GPIO 14 (u otro pin digital) -- Amarrillo   
 ⚠ IMPORTANTE: Conectar una resistencia de 4.7kΩ entre el pin DQ y VCC para garantizar la comunicación.  
 ![image](https://github.com/user-attachments/assets/d5bfc90a-43ef-4883-8b5f-9a4290292343)
 
