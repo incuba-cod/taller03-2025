@@ -100,7 +100,7 @@ Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
 
 
         #include <WiFi.h>
-        #include "secrets.h"
+        //#include "secrets.h"
         #include "ThingSpeak.h" // always include thingspeak header file after other header files and custom macros
         
         char ssid[] = SECRET_SSID;   // your network SSID (name) 
