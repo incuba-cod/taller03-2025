@@ -32,6 +32,8 @@ Antes de comenzar, asegúrate de tener el Arduino IDE instalado y configurado pa
     WiFi → Para la conexión a Internet
     
     HTTPClient → Para enviar datos a ThingSpeak
+
+    ThingSpeak -> conexioón con la pagina web
 # 2️⃣ Conexión del ESP32 con el DS18B20
 El DS18B20 es un sensor de temperatura digital que se comunica mediante el protocolo OneWire.
 
