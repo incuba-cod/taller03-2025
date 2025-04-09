@@ -128,7 +128,7 @@ Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
           // Connect or reconnect to WiFi
           if(WiFi.status() != WL_CONNECTED){
             Serial.print("Attempting to connect to SSID: ");
-            Serial.println(SECRET_SSID);
+            //Serial.println(SECRET_SSID);
             while(WiFi.status() != WL_CONNECTED){
               WiFi.begin(ssid, pass); // Connect to WPA/WPA2 network. Change this line if using open or WEP network
               Serial.print(".");
@@ -160,7 +160,7 @@ Copia la API Key de Escritura (Write API Key) porque la usaremos en el código.
 # 6️⃣ Enviar datos del sensor ds18b20 a ThingSpeak
 
         #include <WiFi.h>
-        #include "secrets.h"
+        //#include "secrets.h"
         #include "ThingSpeak.h" // Siempre incluir ThingSpeak después de otros headers y macros personalizados
         #include <OneWire.h>
         #include <DallasTemperature.h>
